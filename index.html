@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container my-5">
+      <form action="">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="First number"
+                id="first-number"
+              />
+              <span class="input-group-text">+</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Second number"
+                id="second-number"
+              />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button
+              class="btn btn-primary"
+              type="button"
+              onclick="sum(document.getElementById('first-number').value, document.getElementById('second-number').value)"
+            >
+              Submit
+            </button>
+          </div>
+          <div class="col-md-2">
+            <input disabled class="form-control" id="resultSum" />
+          </div>
+        </div>
+      </form>
+
+      <form action="">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="First number"
+                id="first-div-number"
+              />
+              <span class="input-group-text">/</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Second number"
+                id="second-div-number"
+              />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button
+              class="btn btn-primary"
+              type="button"
+              onclick="div(document.getElementById('first-div-number').value, document.getElementById('second-div-number').value)"
+            >
+              Submit
+            </button>
+          </div>
+          <div class="col-md-2">
+            <input disabled class="form-control" id="resultDiv" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      document;
+      const sum = (a, b) => {
+        a = parseFloat(a);
+        b = parseFloat(b);
+
+        if (isNaN(a) || isNaN(b)) alert("Invalid number");
+
+        document.getElementById("resultSum").value = a + b;
+      };
+
+      const div = (a, b) => {
+        a = parseFloat(a);
+        b = parseFloat(b);
+        if (isNaN(a) || isNaN(b)) alert("Invalid number");
+
+        var result = 0;
+        if (b != 0) result = a / b;
+        document.getElementById("resultDiv").value = result;
+      };
+    </script>
+  </body>
+</html>
