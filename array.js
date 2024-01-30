@@ -20,6 +20,6 @@ const sort = (arr) => {
 
 const arr = [20, 30, 10, 50];
 const sortedArray = sort(arr);
-sortedArray.forEach((e) => {
-  console.log(e);
+sortedArray.forEach((element) => {
+  console.log(element);
 });
