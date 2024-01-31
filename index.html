@@ -11,102 +11,165 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
-    <div class="container my-5">
-      <form action="">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="First number"
-                id="first-number"
-              />
-              <span class="input-group-text">+</span>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Second number"
-                id="second-number"
-              />
-            </div>
-          </div>
-          <div class="col-md-2">
-            <button
-              class="btn btn-primary"
-              type="button"
-              onclick="sum(document.getElementById('first-number').value, document.getElementById('second-number').value)"
-            >
-              Submit
-            </button>
-          </div>
-          <div class="col-md-2">
-            <input disabled class="form-control" id="resultSum" />
-          </div>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg shadow-sm bg-white">
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
         </div>
-      </form>
+      </div>
+    </nav>
 
-      <form action="">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="First number"
-                id="first-div-number"
-              />
-              <span class="input-group-text">/</span>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Second number"
-                id="second-div-number"
+    <div class="container my-5">
+      <div class="card border-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-3 my-2">
+              <img
+                src="https://img.freepik.com/premium-photo/web-developer-digital-avatar-generative-ai_934475-9048.jpg?w=740"
+                class="rounded-pill float-start"
+                style="height: 150px"
+                alt="..."
               />
             </div>
-          </div>
-          <div class="col-md-2">
-            <button
-              class="btn btn-primary"
-              type="button"
-              onclick="div(document.getElementById('first-div-number').value, document.getElementById('second-div-number').value)"
-            >
-              Submit
-            </button>
-          </div>
-          <div class="col-md-2">
-            <input disabled class="form-control" id="resultDiv" />
+            <div class="col-sm-3 my-2">
+              <h4>Arif Wiranata Patanduk</h4>
+              <p id="role"></p>
+
+              <div class="d-grid gap-2 d-sm-block">
+                <button
+                  id="editButton"
+                  class="btn btn-primary"
+                  type="button"
+                  onclick="editForm()"
+                >
+                  Edit
+                </button>
+                <button class="btn btn-outline-success" type="button">
+                  Resume
+                </button>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-1">
+                  <div class="d-flex h-100">
+                    <div class="vr d-none d-sm-block"></div>
+                  </div>
+                </div>
+                <div class="col-sm-4 my-2">
+                  <p class="mb-1 fw-bold">Availability</p>
+                  <p class="mb-1 fw-bold">Usia</p>
+                  <p class="mb-1 fw-bold">Lokasi</p>
+                  <p class="mb-1 fw-bold">Pengalaman</p>
+                  <p class="mb-1 fw-bold">Email</p>
+                </div>
+                <div class="col-sm-6 my-2">
+                  <p class="mb-1" id="availability"></p>
+                  <p class="mb-1" id="usia"></p>
+                  <p class="mb-1" id="lokasi"></p>
+                  <p class="mb-1" id="pengalaman"></p>
+                  <p class="mb-1" id="email"></p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </form>
+      </div>
+
+      <div class="card border-0 my-4" id="editForm" style="display: none">
+        <div class="card-body">
+          <form action="" class="p-3">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label for="email-input" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email-input" />
+                  <div class="invalid-feedback" id="emailError"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="role-input" class="form-label">Role</label>
+                  <input type="text" class="form-control" id="role-input" />
+                  <div class="invalid-feedback" id="roleError"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="availability-input" class="form-label"
+                    >Availability</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="availability-input"
+                  />
+                  <div class="invalid-feedback" id="availabilityError"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label for="usia-input" class="form-label">Usia</label>
+                  <input type="text" class="form-control" id="usia-input" />
+                  <div class="invalid-feedback" id="usiaError"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="lokasi-input" class="form-label">Lokasi</label>
+                  <input type="text" class="form-control" id="lokasi-input" />
+                  <div class="invalid-feedback" id="lokasiError"></div>
+                </div>
+                <div class="mb-3">
+                  <label for="pengalaman-input" class="form-label"
+                    >Pengalaman</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="pengalaman-input"
+                  />
+                  <div class="invalid-feedback" id="pengalamanError"></div>
+                </div>
+              </div>
+            </div>
+            <div class="d-grid gap-2">
+              <button
+                class="btn btn-success"
+                type="button"
+                onclick="saveChanges()"
+              >
+                SUBMIT
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-
-    <script>
-      document;
-      const sum = (a, b) => {
-        a = parseFloat(a);
-        b = parseFloat(b);
-
-        if (isNaN(a) || isNaN(b)) alert("Invalid number");
-
-        document.getElementById("resultSum").value = a + b;
-      };
-
-      const div = (a, b) => {
-        a = parseFloat(a);
-        b = parseFloat(b);
-        if (isNaN(a) || isNaN(b)) alert("Invalid number");
-
-        var result = 0;
-        if (b != 0) result = a / b;
-        document.getElementById("resultDiv").value = result;
-      };
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
